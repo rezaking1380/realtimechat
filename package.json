@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.9",
     "emoji-picker-react": "^4.9.2",
     "firebase": "^10.11.0",
     "moment": "^2.30.1",
