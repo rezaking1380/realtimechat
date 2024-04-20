@@ -110,7 +110,7 @@ function Login() {
         </div>
 
         <span>
-          Don't have an account?{" "}
+          Don&#39t have an account?
           <Link
             href="/register"
             className="text-blue-600 hover:text-blue-800 hover:underline"
