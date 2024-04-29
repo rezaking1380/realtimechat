@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'iranSans';
+    src: url('../public/IRANSansXRegular.ttf');
+  }
+  body{
+    font-family: iranSans;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }

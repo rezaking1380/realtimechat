@@ -5,8 +5,11 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Chat App",
-  description: "Chat RealTime App",
+  title: "realtime chat",
+  description: "realtime chat",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
