@@ -16,7 +16,7 @@ import { toast } from "react-hot-toast";
 import UsersCard from "./UserCart";
 import Image from "next/image";
 import Avatar from "./Avatar";
-import { FaAlignJustify, FaTimes } from "react-icons/fa";
+import { FaAlignJustify, FaCommentDots, FaSignOutAlt, FaTimes, FaUserFriends } from "react-icons/fa";
 import {
   Collapse,
   IconButton,
@@ -152,165 +152,45 @@ function Users({ userData, setSelectedChatroom }) {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-
+console.log(userData)
   return (
     <>
-      {/* <Navbar className="mx-auto max-w-screen-xl px-6 py-3 bg-slate-500">
-        <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            as="a"
-            href="#"
-            variant="h6"
-            className="mr-4 cursor-pointer py-1.5"
-          >
-            Chat App
-          </Typography>
-          <div className="hidden lg:block">
-            <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-              <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium"
-              >
-                <button
-                  className={` flex items-center transition-colors ${
-                    activeTab === "users" ? "btn-primary" : ""
-                  }`}
-                  onClick={() => handleTabClick("users")}
-                >
-                  Contacts
-                </button>
-              </Typography>
-              <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium"
-              >
-                <button
-                  className={` flex items-center transition-colors ${
-                    activeTab === "chatrooms" ? "btn-primary" : ""
-                  }`}
-                  onClick={() => handleTabClick("chatrooms")}
-                >
-                  Chatrooms
-                </button>
-              </Typography>
-              <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium"
-              >
-                <button className={``} onClick={logoutClick}>
-                  Logout
-                </button>
-              </Typography>
-            </ul>
-          </div>
-          <div className="m-auto lg:m-0">
-            <Avatar user={userData} />
-          </div>
-          <IconButton
-            variant="text"
-            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
-          >
-            {openNav ? (
-              <FaTimes
-                className="h-6 w-6 !top-[-10px] !left-[-10px] absolute"
-                strokeWidth={2}
-              />
-            ) : (
-              <FaAlignJustify
-                className="h-6 w-6 !top-[-10px] !left-[-10px] absolute"
-                strokeWidth={2}
-              />
-            )}
-          </IconButton>
-        </div>
-        <Collapse open={openNav}>
-          <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <Typography
-              as="li"
-              variant="small"
-              color="blue-gray"
-              className="p-1 font-medium"
-            >
-              <button
-                className={`flex items-center transition-colors ${
-                  activeTab === "users" ? "btn-primary" : ""
-                }`}
-                onClick={() => handleTabClick("users")}
-              >
-                Contacts
-              </button>
-            </Typography>
-            <Typography
-              as="li"
-              variant="small"
-              color="blue-gray"
-              className="p-1 font-medium"
-            >
-              <button
-                className={`flex items-center transition-colors ${
-                  activeTab === "chatrooms" ? "btn-primary" : ""
-                }`}
-                onClick={() => handleTabClick("chatrooms")}
-              >
-                Chatrooms
-              </button>
-            </Typography>
-            <Typography
-              as="li"
-              variant="small"
-              color="blue-gray"
-              className="p-1 font-medium"
-            >
-              <button className={``} onClick={logoutClick}>
-                Logout
-              </button>
-            </Typography>
-          </ul>
-        </Collapse>
-      </Navbar> */}
-
-      <div className="w-full m-auto text-center sm:hidden mt-4" onClick={handelOpen}>
-        <FaAlignJustify className="m-auto" />
-      </div>
-      <div className="shadow-lg h-screen overflow-auto mt-4 mb-20 w-full hidden sm:block">
-        <div className="flex items-center m-auto justify-center">
+      <div className="shadow-lg h-screen overflow-auto mt-4 mb-20 w-full">
+        <div className="flex gap-3 items-center m-auto justify-center flex-col md:flex-row">
           <Avatar user={userData} />
-          <div className="ml-3 text-lg font-medium">{userData?.name}</div>
+          <div className="text-lg font-medium">{userData?.name}</div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between p-4 space-y-4 lg:space-y-0">
+        <div className="flex flex-col justify-between p-4 space-y-4">
           <button
-            className={`btn btn-outline ${
+            className={`btn ${
               activeTab === "users" ? "btn-primary" : ""
             }`}
             onClick={() => handleTabClick("users")}
           >
-            Contacts
+            <FaUserFriends className="w-5 h-5" />
+            <span className="hidden md:inline">Contacts</span>
+            
           </button>
           <button
-            className={`btn btn-outline ${
+            className={`btn ${
               activeTab === "chatrooms" ? "btn-primary" : ""
             }`}
             onClick={() => handleTabClick("chatrooms")}
           >
-            Chatrooms
+            <FaCommentDots className="w-5 h-5" />
+            <span className="hidden md:inline">Chat</span>
           </button>
-          <button className={`btn btn-outline`} onClick={logoutClick}>
-            Logout
+          <button className={`btn`} onClick={logoutClick}>
+          <FaSignOutAlt className="w-5 h-5" />
+          <span className="hidden md:inline">Logout</span>
+            
           </button>
         </div>
 
         <div>
           {activeTab === "chatrooms" && (
             <>
-              <h1 className="px-4 text-base font-semibold">Chatrooms</h1>
+              <h1 className="px-4 text-base font-semibold">Chat</h1>
               {loading && (
                 <div className="flex justify-center items-center h-full">
                   <span className="loading loading-spinner text-primary"></span>

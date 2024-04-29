@@ -28,9 +28,10 @@ export default function Home() {
     return () => unsubscribe()
   }, [auth,router])
   if(user == null) return (<div className='text-4xl'>Loading...</div>);
+  
   return (
-    <div className="flex h-screen">
-      <div className="flex-shrink-0 sm:w-3/12 w-1/12">
+    <div className="flex h-screen overflow-y-hidden">
+      <div className="flex-shrink-0">
         <Users userData={user} setSelectedChatroom={setSelectedChatroom}/>
       </div>
 

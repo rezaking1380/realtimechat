@@ -1,42 +1,40 @@
 import React from "react";
 
 function UsersCard({ avatarUrl, name, latestMessage, time, type, status }) {
-  console.log(status);
+  console.log(time);
   return (
-    <div className="flex items-center p-4 border-b border-gray-200 relative hover:cursor-pointer">
-      {/* Avatar on the left */}
-      <div className="flex-shrink-0 mr-4 relative">
-        <div className="w-12 h-12 relative">
+    <>
+      <div class="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative md:w-[250px]">
+        <div class="w-16 h-16 relative flex flex-shrink-0">
           <img
-            className="w-full h-full object-cover"
+            class="shadow-md rounded-full w-full h-full object-cover"
             src={avatarUrl}
             alt={name}
+            width={64}
+            height={64}
           />
           {status === "online" && (
             <div className="absolute bg-green-600 w-3 h-3 border bottom-0 right-0 rounded-full"></div>
           )}
         </div>
+        {type == "chat" && (
+          <div class="flex-auto min-w-0 ml-4 mr-6 hidden md:block group-hover:block">
+            <p>{name}</p>
+            <div class="flex justify-between items-center text-sm text-gray-600">
+              <div class="min-w-0">
+                <p class="truncate">{latestMessage}</p>
+              </div>
+              <p class="ml-2 whitespace-no-wrap">Just now</p>
+            </div>
+          </div>
+        )}
+        {type == "user" && (
+          <div class="flex-auto min-w-0 ml-4 mr-6 hidden md:block group-hover:block">
+            <p>{name}</p>
+          </div>
+        )}
       </div>
-
-      {type == "chat" && (
-        /* Name, latest message, and time on the right */
-        <div className="flex-1">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold">{name}</h2>
-          </div>
-          <p className="text-gray-500 truncate">{latestMessage}</p>
-        </div>
-      )}
-
-      {type == "user" && (
-        /* Name */
-        <div className="flex-1">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold">{name}</h2>
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 }
 

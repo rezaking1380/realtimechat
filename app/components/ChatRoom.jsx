@@ -78,9 +78,9 @@ function ChatRoom({ user ,selectedChatroom}) {
     }
 
     return (
-        <div className='flex flex-col h-screen'>
+        <div className='flex flex-col h-screen overflow-y-hidden'>
             {/* Messages container with overflow and scroll */}
-            <div ref={messagesContainerRef} className='flex-1 overflow-y-auto p-10'>
+            <div ref={messagesContainerRef} className='flex-1 overflow-y-auto p-2 pt-4'>
                 {messages?.map((message) => (
                     <MessageCard key={message.id} message={message} me={me} other={other}/>
                 ))}
