@@ -89,14 +89,14 @@ function Register() {
       {/*form*/}
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 w-full max-w-2xl shadow-lg p-10"
+        className="space-y-4 w-full max-w-2xl shadow-lg p-10 rounded-lg"
       >
         <h1 className="font-secondary text-xl text-center font-semibold text-[#0b3a65ff]">
-          CHAT<span className="font-bold text-[#eeab63ff]">2</span>CHAT
+          Chat RealTime
         </h1>
 
         {/* Display the avatar and refresh button */}
-        <div className="flex items-center space-y-2 justify-between border border-gray-200 p-2">
+        <div className="flex items-center space-y-2 justify-between p-2">
           <img
             src={avatarUrl}
             alt="Avatar"
@@ -188,7 +188,7 @@ function Register() {
           </button>
         </div>
 
-        <span>
+        <span className="mt-3">
           Already have an account?{" "}
           <Link
             href="/login"

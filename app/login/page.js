@@ -58,10 +58,10 @@ function Login() {
       {/*form*/}
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 w-full max-w-2xl shadow-lg p-10"
+        className="space-y-4 w-full max-w-2xl shadow-lg p-10 rounded-lg"
       >
         <h1 className="font-secondary text-xl text-center font-semibold text-[#0b3a65ff]">
-          CHAT<span className="font-bold text-[#eeab63ff]">2</span>CHAT
+        Chat RealTime
         </h1>
 
         {/*email*/}
@@ -109,8 +109,8 @@ function Login() {
           </button>
         </div>
 
-        <span>
-          Don&#39t have an account?
+        <span className="mt-3">
+          Do not have an account?
           <Link
             href="/register"
             className="text-blue-600 hover:text-blue-800 hover:underline"
